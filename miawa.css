@@ -1,0 +1,845 @@
+/* =====================================================================
+   MIAWA HÔTEL YAMOUSSOUKRO — FEUILLE DE STYLE
+   Palette : Chocolat profond (confort, standing) + Jaune subtil (vente)
+   Typo : Fraunces (display) + Work Sans (texte courant / UI)
+   ===================================================================== */
+
+/* ---------------------------------------------------------------------
+   1. VARIABLES & RESET
+   --------------------------------------------------------------------- */
+:root {
+  /* Couleurs — dominante chocolat */
+  --brown-950: #1C0F07;   /* fond le plus profond (hero overlay, footer) */
+  --brown-900: #2A1810;   /* fond de section sombre */
+  --brown-800: #3B2214;   /* cartes / surfaces sur fond sombre */
+  --brown-700: #55311D;   /* bordures, survols sur fond sombre */
+  --brown-500: #8A5C3C;   /* texte secondaire sur fond clair */
+
+  /* Couleurs — accent jaune (réservé à ce qui vend) */
+  --gold-500: #E3AE44;    /* accent principal : boutons, prix */
+  --gold-400: #EFC569;    /* survol accent */
+  --gold-200: #F6DFA3;    /* fonds de mise en avant (petit-déj inclus) */
+  --gold-900: #6B4C15;    /* texte sur fond jaune clair */
+
+  /* Neutres chauds */
+  --cream-050: #FBF6EE;   /* fond clair principal */
+  --cream-100: #F4ECDC;   /* fond clair alterné */
+  --ink: #241608;         /* texte principal sur fond clair */
+  --ink-soft: #5B4A3A;    /* texte secondaire sur fond clair */
+  --white: #FFFFFF;
+
+  /* Typo */
+  --font-display: "Fraunces", "Georgia", serif;
+  --font-body: "Work Sans", "Segoe UI", sans-serif;
+
+  /* Échelle & rythme */
+  --radius-s: 10px;
+  --radius-m: 18px;
+  --radius-l: 28px;
+  --shadow-soft: 0 12px 32px rgba(28, 15, 7, 0.14);
+  --shadow-strong: 0 24px 60px rgba(28, 15, 7, 0.28);
+  --container-w: 1180px;
+  --header-h: 84px;
+
+  --ease: cubic-bezier(.22, .68, 0, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-h);
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--cream-050);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: inherit; text-decoration: none; }
+
+ul { list-style: none; margin: 0; padding: 0; }
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  color: var(--brown-900);
+  margin: 0 0 .5em;
+  line-height: 1.12;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+p { margin: 0 0 1em; }
+
+.container {
+  width: 100%;
+  max-width: var(--container-w);
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+
+:focus-visible {
+  outline: 3px solid var(--gold-500);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+  }
+}
+
+/* Éléments utilitaires réutilisés dans plusieurs sections */
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: .8rem;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--gold-500);
+  margin-bottom: .9em;
+  display: inline-block;
+}
+.eyebrow--light { color: var(--gold-400); }
+
+.section-title { font-size: clamp(1.9rem, 3vw, 2.6rem); }
+.section-lead {
+  max-width: 640px;
+  color: var(--ink-soft);
+  font-size: 1.05rem;
+}
+
+/* ---------------------------------------------------------------------
+   2. BOUTONS
+   --------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5em;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: .95rem;
+  padding: .85em 1.6em;
+  border-radius: 999px;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: transform .25s var(--ease), background-color .25s var(--ease),
+              box-shadow .25s var(--ease), color .25s var(--ease), border-color .25s var(--ease);
+  white-space: nowrap;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn:active { transform: translateY(0); }
+
+.btn--accent {
+  background: var(--gold-500);
+  color: var(--brown-950);
+  box-shadow: 0 10px 24px rgba(227, 174, 68, .35);
+}
+.btn--accent:hover { background: var(--gold-400); box-shadow: 0 14px 30px rgba(227, 174, 68, .45); }
+
+.btn--ghost {
+  background: rgba(255, 255, 255, .08);
+  color: var(--cream-050);
+  border-color: rgba(251, 246, 238, .55);
+  backdrop-filter: blur(6px);
+}
+.btn--ghost:hover { background: rgba(255, 255, 255, .18); border-color: var(--cream-050); }
+
+.btn--outline {
+  background: transparent;
+  color: var(--brown-900);
+  border-color: var(--brown-700);
+}
+.btn--outline:hover { background: var(--brown-900); color: var(--cream-050); }
+
+.btn--large { padding: 1em 2em; font-size: 1rem; }
+.btn--full { width: 100%; }
+.btn--nav { padding: .65em 1.4em; font-size: .9rem; }
+.btn--itinerary { margin-top: .4em; }
+
+/* ---------------------------------------------------------------------
+   3. HEADER & NAVIGATION
+   --------------------------------------------------------------------- */
+.site-header {
+  position: fixed;
+  inset-inline: 0;
+  top: 0;
+  z-index: 100;
+  height: var(--header-h);
+  display: flex;
+  align-items: center;
+  background: linear-gradient(180deg, rgba(28, 15, 7, .55), rgba(28, 15, 7, 0));
+  transition: background-color .3s var(--ease), box-shadow .3s var(--ease);
+}
+/* CORRECTIF BUG "menu hamburger sans fond" :
+   on n'utilise plus backdrop-filter ici. Un filter/backdrop-filter sur .site-header
+   crée un nouveau "containing block" pour TOUS ses descendants en position:fixed —
+   or #nav-toggle et #main-nav (le menu mobile) sont fixed et vivent dans le header.
+   Ça les forçait à se positionner par rapport aux 84px du header au lieu de tout
+   l'écran, écrasant le menu mobile et faisant apparaître le texte sans son fond.
+   Un fond rgba bien opaque suffit visuellement, sans ce risque. */
+.site-header.is-scrolled {
+  background: rgba(28, 15, 7, .96);
+  box-shadow: var(--shadow-soft);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-right: auto;
+  color: var(--cream-050);
+}
+.logo-palm { color: var(--gold-500); flex-shrink: 0; }
+.logo-words { display: flex; flex-direction: column; line-height: 1.05; }
+.logo-word {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+.logo-word--miawa { color: var(--gold-500); margin-right: .25em; }
+.logo-word--hotel { color: var(--cream-050); }
+.logo-tag {
+  font-size: .62rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: rgba(251, 246, 238, .65);
+}
+
+.main-nav ul { display: flex; gap: 28px; }
+.main-nav a {
+  color: var(--cream-050);
+  font-size: .92rem;
+  font-weight: 500;
+  padding: .3em 0;
+  border-bottom: 2px solid transparent;
+  transition: border-color .25s var(--ease), color .25s var(--ease);
+}
+.main-nav a:hover { border-color: var(--gold-500); color: var(--gold-400); }
+
+.social-links { display: flex; gap: 10px; }
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  color: var(--cream-050);
+  background: rgba(251, 246, 238, .1);
+  transition: background-color .25s var(--ease), color .25s var(--ease), transform .25s var(--ease);
+}
+.social-links--header .social-link:hover {
+  background: var(--gold-500);
+  color: var(--brown-950);
+  transform: translateY(-2px);
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.nav-toggle span {
+  display: block;
+  height: 2px;
+  background: var(--cream-050);
+  border-radius: 2px;
+}
+
+/* ---------------------------------------------------------------------
+   4. HERO
+   --------------------------------------------------------------------- */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  color: var(--cream-050);
+}
+
+.hero-media { position: absolute; inset: 0; }
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: heroReveal 1.6s var(--ease) both;
+}
+@keyframes heroReveal {
+  from { opacity: 0; transform: scale(1.06); }
+  to   { opacity: 1; transform: scale(1); }
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(28,15,7,.35) 0%, rgba(28,15,7,.35) 40%, rgba(28,15,7,.92) 100%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding-bottom: 96px;
+  max-width: 760px;
+}
+.hero-title {
+  color: var(--cream-050);
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  animation: fadeUp .9s .2s var(--ease) both;
+}
+.hero-subtitle {
+  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+  color: var(--cream-100);
+  max-width: 46ch;
+  animation: fadeUp .9s .35s var(--ease) both;
+}
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 1.6em;
+  animation: fadeUp .9s .5s var(--ease) both;
+}
+.eyebrow--light { animation: fadeUp .9s .05s var(--ease) both; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.scroll-cue {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 26px;
+  height: 42px;
+  border: 2px solid rgba(251, 246, 238, .6);
+  border-radius: 20px;
+  z-index: 2;
+}
+.scroll-cue span {
+  position: absolute;
+  top: 8px; left: 50%;
+  width: 4px; height: 8px;
+  background: var(--gold-500);
+  border-radius: 3px;
+  transform: translateX(-50%);
+  animation: scrollCue 1.8s infinite var(--ease);
+}
+@keyframes scrollCue {
+  0% { opacity: 1; top: 8px; }
+  70% { opacity: 0; top: 22px; }
+  100% { opacity: 0; top: 8px; }
+}
+
+/* ---------------------------------------------------------------------
+   5. FADE-IN AU DÉFILEMENT (classes posées par le JS)
+   --------------------------------------------------------------------- */
+.fade-in {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .8s var(--ease), transform .8s var(--ease);
+}
+.fade-in.is-visible { opacity: 1; transform: translateY(0); }
+
+/* ---------------------------------------------------------------------
+   6. SECTION ACCÈS — SIGNATURE "ROUTE & JOUR/NUIT"
+   --------------------------------------------------------------------- */
+.access-strip {
+  background: var(--brown-900);
+  color: var(--cream-100);
+  padding: 96px 0;
+}
+.access-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 56px;
+}
+.access-text h2 { color: var(--cream-050); }
+.access-text p { color: var(--cream-100); }
+.access-hours {
+  display: flex;
+  align-items: center;
+  gap: .6em;
+  color: var(--gold-400);
+  font-weight: 600;
+}
+.access-hours-icon { color: var(--gold-500); flex-shrink: 0; }
+.access-hours strong { color: var(--gold-300, var(--gold-400)); }
+
+.btn--itinerary {
+  border-color: var(--gold-500);
+  color: var(--cream-050);
+}
+.btn--itinerary:hover { background: var(--gold-500); color: var(--brown-950); }
+
+.day-night-track {
+  position: relative;
+  height: 90px;
+  margin-top: 12px;
+}
+.dn-line {
+  position: absolute;
+  top: 50%;
+  left: 0; right: 0;
+  height: 2px;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(251, 246, 238, .35) 0 10px,
+    transparent 10px 20px
+  );
+  transform: translateY(-50%);
+}
+.dn-closed {
+  position: absolute;
+  top: 50%;
+  left: var(--start);
+  right: calc(100% - var(--end));
+  height: 2px;
+  background: rgba(28, 15, 7, .9);
+  transform: translateY(-50%);
+}
+.dn-marker {
+  position: absolute;
+  left: var(--pos);
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.dn-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  background: var(--brown-800);
+  border: 2px solid var(--gold-500);
+  color: var(--gold-400);
+}
+.dn-marker--moon .dn-icon { border-color: var(--cream-100); color: var(--cream-100); }
+.dn-label {
+  font-size: .72rem;
+  color: rgba(251, 246, 238, .7);
+  letter-spacing: .04em;
+}
+.access-caption {
+  margin-top: 20px;
+  font-size: .85rem;
+  color: rgba(251, 246, 238, .6);
+  letter-spacing: .03em;
+}
+
+/* ---------------------------------------------------------------------
+   7. CHAMBRES
+   --------------------------------------------------------------------- */
+.rooms { padding: 110px 0; }
+
+.room-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 52px;
+}
+
+.room-card {
+  position: relative;
+  background: var(--white);
+  border-radius: var(--radius-l);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  flex-direction: column;
+  transition: transform .35s var(--ease), box-shadow .35s var(--ease);
+}
+.room-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-strong); }
+
+.room-card--highlight { border: 2px solid var(--gold-500); }
+
+.room-badge {
+  position: absolute;
+  top: 18px; right: 18px;
+  z-index: 2;
+  background: var(--gold-500);
+  color: var(--brown-950);
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .03em;
+  padding: .45em .9em;
+  border-radius: 999px;
+  box-shadow: var(--shadow-soft);
+}
+
+.room-media { aspect-ratio: 4 / 3; overflow: hidden; }
+.room-img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s var(--ease); }
+.room-card:hover .room-img { transform: scale(1.06); }
+
+.room-body { padding: 26px 26px 28px; display: flex; flex-direction: column; gap: .5em; flex: 1; }
+.room-name { font-size: 1.3rem; margin-bottom: .2em; }
+.room-price { margin: 0 0 .3em; }
+.price-amount { font-family: var(--font-display); font-size: 1.6rem; font-weight: 700; color: var(--brown-900); }
+.price-unit { font-size: .85rem; color: var(--ink-soft); }
+
+.room-features { display: flex; flex-direction: column; gap: .35em; margin: .4em 0 .8em; }
+.room-features li {
+  font-size: .9rem;
+  color: var(--ink-soft);
+  padding-left: 1.3em;
+  position: relative;
+}
+.room-features li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: .55em;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--gold-500);
+}
+
+.room-breakfast {
+  font-size: .85rem;
+  font-weight: 600;
+  padding: .6em .9em;
+  border-radius: var(--radius-s);
+  margin-bottom: 1em;
+}
+.room-breakfast--optional {
+  background: var(--cream-100);
+  color: var(--ink-soft);
+  font-weight: 400;
+}
+.room-breakfast--optional strong { color: var(--brown-900); font-weight: 700; }
+.room-breakfast--included {
+  background: var(--gold-200);
+  color: var(--gold-900);
+}
+
+/* ---------------------------------------------------------------------
+   8. ESPACES COMMUNS
+   --------------------------------------------------------------------- */
+.spaces { background: var(--cream-100); padding: 110px 0; }
+
+.spaces-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  margin-top: 52px;
+}
+
+.space-card {
+  background: var(--white);
+  border-radius: var(--radius-l);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  transition: transform .35s var(--ease), box-shadow .35s var(--ease);
+}
+.space-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-strong); }
+
+.space-media { aspect-ratio: 16 / 10; overflow: hidden; }
+.space-img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s var(--ease); }
+.space-card:hover .space-img { transform: scale(1.05); }
+
+.space-body { padding: 24px 26px 28px; }
+.space-body h3 { font-size: 1.25rem; }
+.space-body p { color: var(--ink-soft); margin-bottom: 1.1em; }
+
+.free-services {
+  display: flex;
+  gap: 40px;
+  margin-top: 56px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(36, 22, 8, .1);
+}
+.free-service {
+  display: flex;
+  align-items: center;
+  gap: .7em;
+  font-weight: 600;
+  color: var(--brown-900);
+}
+.free-icon {
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  background: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.15rem;
+  box-shadow: var(--shadow-soft);
+}
+
+/* ---------------------------------------------------------------------
+   9. BANDEAU CTA FINAL
+   --------------------------------------------------------------------- */
+.cta-band {
+  background: var(--brown-950);
+  color: var(--cream-050);
+  padding: 90px 0;
+  text-align: center;
+}
+.cta-band h2 { color: var(--cream-050); }
+.cta-band p { color: var(--cream-100); max-width: 46ch; margin-inline: auto 1.6em; }
+.cta-band-inner { display: flex; flex-direction: column; align-items: center; }
+
+/* ---------------------------------------------------------------------
+   10. PANNEAU DE RÉSERVATION (WhatsApp)
+   --------------------------------------------------------------------- */
+.booking-panel {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  visibility: hidden;
+  pointer-events: none;
+}
+.booking-panel[data-open] { visibility: visible; pointer-events: auto; }
+
+.booking-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(28, 15, 7, .6);
+  backdrop-filter: blur(3px);
+  opacity: 0;
+  transition: opacity .35s var(--ease);
+}
+.booking-panel[data-open] .booking-backdrop { opacity: 1; }
+
+.booking-sheet {
+  position: absolute;
+  top: 0; right: 0;
+  height: 100%;
+  width: min(460px, 100%);
+  background: var(--cream-050);
+  padding: 40px 34px;
+  overflow-y: auto;
+  box-shadow: var(--shadow-strong);
+  transform: translateX(100%);
+  transition: transform .45s var(--ease);
+}
+.booking-panel[data-open] .booking-sheet { transform: translateX(0); }
+
+.booking-close {
+  position: absolute;
+  top: 20px; right: 20px;
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  border: none;
+  background: var(--cream-100);
+  color: var(--brown-900);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color .25s var(--ease);
+}
+.booking-close:hover { background: var(--gold-200); }
+
+.booking-lead { color: var(--ink-soft); margin-bottom: 1.6em; }
+
+.booking-form { display: flex; flex-direction: column; gap: 18px; }
+.form-field { display: flex; flex-direction: column; gap: .4em; }
+.form-field label { font-size: .85rem; font-weight: 600; color: var(--brown-900); }
+.form-field input,
+.form-field select {
+  font-family: var(--font-body);
+  font-size: .95rem;
+  padding: .8em .9em;
+  border-radius: var(--radius-s);
+  border: 1.5px solid var(--cream-100);
+  background: var(--white);
+  color: var(--ink);
+  transition: border-color .25s var(--ease);
+}
+.form-field input:focus,
+.form-field select:focus { border-color: var(--gold-500); }
+
+.form-field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+.booking-note {
+  font-size: .8rem;
+  color: var(--ink-soft);
+  text-align: center;
+  margin-top: -.4em;
+}
+
+/* ---------------------------------------------------------------------
+   11. FOOTER
+   --------------------------------------------------------------------- */
+.site-footer {
+  background: var(--brown-950);
+  color: var(--cream-100);
+  padding: 80px 0 0;
+}
+.footer-inner {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 48px;
+  padding-bottom: 56px;
+  border-bottom: 1px solid rgba(251, 246, 238, .12);
+}
+.footer-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 1em; }
+.footer-brand p { color: rgba(251, 246, 238, .65); font-size: .92rem; max-width: 34ch; }
+
+.footer-itinerary {
+  display: inline-block;
+  color: var(--gold-400);
+  font-size: .88rem;
+  font-weight: 600;
+  border-bottom: 1px solid transparent;
+  transition: border-color .25s var(--ease), color .25s var(--ease);
+}
+.footer-itinerary:hover { color: var(--gold-500); border-color: var(--gold-500); }
+
+.footer-contact h3,
+.footer-links h3,
+.footer-social h3 {
+  color: var(--cream-050);
+  font-size: .8rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  font-family: var(--font-body);
+  margin-bottom: 1.1em;
+}
+.footer-whatsapp {
+  display: inline-block;
+  color: var(--gold-400);
+  font-weight: 600;
+  margin-bottom: .5em;
+}
+.footer-whatsapp:hover { color: var(--gold-500); }
+.footer-contact p { color: rgba(251, 246, 238, .6); font-size: .9rem; }
+
+.footer-links ul { display: flex; flex-direction: column; gap: .6em; }
+.footer-links a { color: rgba(251, 246, 238, .75); font-size: .92rem; transition: color .25s var(--ease); }
+.footer-links a:hover { color: var(--gold-400); }
+
+.social-links--footer { display: flex; flex-direction: column; gap: 12px; }
+.social-links--footer .social-link {
+  width: auto; height: auto;
+  border-radius: 999px;
+  padding: .5em .9em;
+  gap: .6em;
+  justify-content: flex-start;
+  font-size: .88rem;
+  color: rgba(251, 246, 238, .85);
+}
+.social-links--footer .social-link:hover { background: var(--gold-500); color: var(--brown-950); }
+
+.footer-bottom {
+  padding: 24px 0 32px;
+  text-align: center;
+  font-size: .8rem;
+  color: rgba(251, 246, 238, .5);
+}
+
+/* ---------------------------------------------------------------------
+   12. RESPONSIVE
+   --------------------------------------------------------------------- */
+@media (min-width: 860px) {
+  .access-inner { grid-template-columns: 1fr 1fr; align-items: center; }
+}
+
+@media (max-width: 900px) {
+  .room-grid { grid-template-columns: 1fr 1fr; }
+  .footer-inner { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 720px) {
+  .social-links--header, .btn--nav { display: none; }
+
+  /* Le bouton hamburger reste TOUJOURS visible et cliquable, même menu ouvert :
+     z-index très élevé + position fixed propre (indépendante du header) + !important
+     en dernier recours pour écraser tout conflit éventuel. */
+  .nav-toggle {
+    display: flex !important;
+    position: fixed !important;
+    top: 16px;
+    right: 20px;
+    z-index: 999 !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    background: rgba(28, 15, 7, .85) !important;
+    border-radius: 50%;
+    box-shadow: var(--shadow-soft);
+  }
+
+  /* Le menu mobile est caché par défaut (opacity/visibility, pas display:none,
+     pour garder la transition), puis affiché dès que le JS ajoute .is-open sur #main-nav.
+     Fond opaque garanti par un rgba solide — le backdrop-filter est appliqué ici
+     directement sur #main-nav (qui EST l'élément fixed), donc sans risque : ça ne
+     touche que l'intérieur du menu, pas son propre positionnement. */
+  .main-nav {
+    position: fixed;
+    inset: var(--header-h) 0 0 0;
+    z-index: 150;
+    background: var(--brown-950);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 48px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-12px);
+    transition: opacity .3s var(--ease), transform .3s var(--ease), visibility 0s linear .3s;
+  }
+  @supports (backdrop-filter: blur(1px)) and (not (-webkit-touch-callout: none)) {
+    .main-nav { backdrop-filter: blur(10px); background: rgba(28, 15, 7, .97); }
+  }
+  .main-nav.is-open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition: opacity .3s var(--ease), transform .3s var(--ease), visibility 0s linear 0s;
+  }
+  .main-nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+  }
+  .main-nav a { font-size: 1.1rem; }
+
+  /* Animation du bouton hamburger en croix (X) quand le menu est ouvert */
+  .nav-toggle span {
+    transition: transform .3s var(--ease), opacity .3s var(--ease);
+  }
+  .nav-toggle.is-active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .nav-toggle.is-active span:nth-child(2) {
+    opacity: 0;
+  }
+  .nav-toggle.is-active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .room-grid, .spaces-grid { grid-template-columns: 1fr; }
+  .free-services { flex-direction: column; gap: 20px; }
+  .footer-inner { grid-template-columns: 1fr; }
+  .form-field-row { grid-template-columns: 1fr; }
+  .hero-content { padding-bottom: 64px; }
+  .booking-sheet { width: 100%; padding: 32px 22px; }
+}

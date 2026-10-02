@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Miawa Hôtel Yamoussoukro — Votre havre de paix au bord de la grande voie</title>
+<meta name="description" content="Miawa Hôtel Yamoussoukro : chambres confortables, petit-déjeuner inclus selon la formule, salle de séminaire, parking sécurisé et Wi-Fi gratuit. Réservez en 2 minutes sur WhatsApp.">
+
+<!-- Polices : Fraunces (display, chaleureux et élégant) + Work Sans (texte courant / utilitaire) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Feuille de style (étape suivante) -->
+<link rel="stylesheet" href="miawa.css">
+</head>
+<body>
+
+<!-- Sprite SVG caché — symbole palmier, réutilisé via <use href="#icon-palm"> -->
+<svg style="display:none" aria-hidden="true">
+  <symbol id="icon-palm" viewBox="0 0 64 64">
+    <!-- Tronc courbé -->
+    <path d="M33 60c-1-13 0-22 3-32" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+    <!-- Six palmes partant du sommet du tronc, réparties en éventail -->
+    <g fill="currentColor">
+      <path d="M36 28C30 20 20 16 10 17c8 3 15 8 20 14 1-1 3-2 6-3Z"/>
+      <path d="M36 28C33 18 25 11 15 9c6 5 11 12 14 20 2-1 5-1 7 0Z"/>
+      <path d="M36 27c-1-11 3-20 10-27-2 9-3 18-2 27-3 0-6 0-8 0Z"/>
+      <path d="M37 28c4-9 12-15 22-16-7 4-13 10-16 17-2-1-4-1-6-1Z"/>
+      <path d="M37 29c6-7 15-10 25-8-8 2-15 6-19 12-2-2-4-3-6-4Z"/>
+      <path d="M37 30c7-3 16-3 24 1-8 0-15 2-20 6-1-2-2-5-4-7Z"/>
+    </g>
+  </symbol>
+</svg>
+
+<!-- =========================================================
+     BARRE DE NAVIGATION
+     ========================================================= -->
+<header class="site-header" id="site-header">
+  <div class="container header-inner">
+    <a href="#accueil" class="logo">
+      <svg class="logo-palm" width="30" height="30" aria-hidden="true"><use href="#icon-palm"></use></svg>
+      <span class="logo-words">
+        <span class="logo-word logo-word--miawa">Miawa</span>
+        <span class="logo-word logo-word--hotel">Hôtel</span>
+        <span class="logo-tag">Yamoussoukro</span>
+      </span>
+    </a>
+
+    <!-- CORRECTIF : ajout de id="main-nav" pour que le JS puisse trouver ce menu -->
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li><a href="#chambres">Chambres</a></li>
+        <li><a href="#espaces">Espaces &amp; Séminaires</a></li>
+        <li><a href="#acces">Accès &amp; localisation</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <ul class="social-links social-links--header" aria-label="Suivez Miawa Hôtel sur les réseaux sociaux">
+      <li>
+        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Miawa Hôtel sur Facebook" class="social-link social-link--facebook">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.6h2.55l.38-2.96h-2.93V8.55c0-.86.24-1.44 1.47-1.44h1.57V4.46c-.27-.04-1.2-.12-2.28-.12-2.26 0-3.8 1.38-3.8 3.9v2.18H8v2.96h2.46V21h3.04Z"/></svg>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Miawa Hôtel sur Instagram" class="social-link social-link--instagram">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 8.4a3.6 3.6 0 1 0 0 7.2 3.6 3.6 0 0 0 0-7.2Zm0 5.94A2.34 2.34 0 1 1 12 9.66a2.34 2.34 0 0 1 0 4.68ZM17.6 3H6.4A3.4 3.4 0 0 0 3 6.4v11.2A3.4 3.4 0 0 0 6.4 21h11.2a3.4 3.4 0 0 0 3.4-3.4V6.4A3.4 3.4 0 0 0 17.6 3Zm2.14 14.6a2.14 2.14 0 0 1-2.14 2.14H6.4a2.14 2.14 0 0 1-2.14-2.14V6.4A2.14 2.14 0 0 1 6.4 4.26h11.2A2.14 2.14 0 0 1 19.74 6.4v11.2ZM17.9 6.9a.86.86 0 1 1-1.72 0 .86.86 0 0 1 1.72 0Z"/></svg>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer" aria-label="Miawa Hôtel sur TikTok" class="social-link social-link--tiktok">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M16.6 3h-2.9v12.2a2.6 2.6 0 1 1-1.85-2.49v-2.98a5.58 5.58 0 1 0 4.75 5.53c0-.1 0-.19-.01-.29V9.35a7.9 7.9 0 0 0 4.4 1.33V7.78a4.98 4.98 0 0 1-4.4-4.62V3Z"/></svg>
+        </a>
+      </li>
+    </ul>
+
+    <a href="#reservation" class="btn btn--accent btn--nav" data-open-booking>
+      Réserver sur WhatsApp
+    </a>
+
+    <button class="nav-toggle" id="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="main-nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- =========================================================
+     SECTION HERO — ACCROCHE IMMERSIVE IMMÉDIATE
+     ========================================================= -->
+<section class="hero" id="accueil">
+  <!-- METTRE ICI LA PLUS BELLE PHOTO DE L'HÔTEL (façade ou chambre signature) -->
+  <div class="hero-media">
+    <img src="image-miawa/interieur.jpeg" alt="Façade du Miawa Hôtel Yamoussoukro de nuit, éclairée et accueillante" class="hero-img">
+    <div class="hero-overlay"></div>
+  </div>
+
+  <div class="container hero-content">
+    <p class="eyebrow eyebrow--light">Quartier Morofé · Non loin de la Basilique</p>
+    <h1 class="hero-title">
+      Votre havre de paix à Yamoussoukro,<br>
+      au bord de la grande voie.
+    </h1>
+    <p class="hero-subtitle">
+      Sécurité, confort et accès facile de 6h à 4h du matin.
+    </p>
+
+    <div class="hero-actions">
+      <a href="#reservation" class="btn btn--accent btn--large" data-open-booking>
+        Réserver maintenant
+      </a>
+      <a href="#chambres" class="btn btn--ghost btn--large">
+        Découvrir les chambres
+      </a>
+    </div>
+  </div>
+
+  <a href="#histoire" class="scroll-cue" aria-label="Défiler pour en savoir plus">
+    <span></span>
+  </a>
+</section>
+
+<!-- =========================================================
+     SECTION HISTOIRE / ACCÈS 24H — SIGNATURE "LA ROUTE & LE JOUR-NUIT"
+     ========================================================= -->
+<section class="access-strip" id="acces">
+  <div class="container access-inner">
+    <div class="access-text fade-in">
+      <p class="eyebrow">Un emplacement pensé pour vous</p>
+      <h2>Facile à trouver, facile d'accès.</h2>
+      <p>
+        Le Miawa Hôtel se trouve dans le quartier Morofé, non loin de la Basilique
+        Notre-Dame de la Paix, directement au bord de la grande voie qui mène vers
+        Daloa. Un emplacement repérable en un coup d'œil, avec un accès simple pour
+        les arrivées tardives comme pour les départs matinaux.
+      </p>
+      <p class="access-hours">
+        <svg class="access-hours-icon" width="18" height="18" aria-hidden="true"><use href="#icon-palm"></use></svg>
+        Ouvert de <strong>6h à 2h du matin</strong>, tous les jours.
+      </p>
+
+      <a href="https://www.google.com/maps/search/?api=1&query=Miawa+H%C3%B4tel+Yamoussoukro+Morof%C3%A9"
+         target="_blank" rel="noopener noreferrer" class="btn btn--outline btn--itinerary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C7.6 2 4 5.6 4 10c0 5.4 6.9 11.1 7.2 11.3.2.2.5.2.7 0C12.1 21.1 20 15.4 20 10c0-4.4-3.6-8-8-8Zm0 10.8c-1.5 0-2.8-1.3-2.8-2.8S10.5 7.2 12 7.2s2.8 1.3 2.8 2.8-1.3 2.8-2.8 2.8Z"/></svg>
+        Voir l'itinéraire pour venir à l'hôtel
+      </a>
+    </div>
+
+    <!-- Frise jour/nuit représentant la plage d'accessibilité 6h → 2h -->
+    <div class="day-night-track" aria-hidden="true">
+      <div class="dn-line"></div>
+      <div class="dn-marker dn-marker--sun" style="--pos:4%">
+        <span class="dn-icon">☀</span><span class="dn-label">6h</span>
+      </div>
+      <div class="dn-marker dn-marker--sun" style="--pos:32%">
+        <span class="dn-icon">☀</span><span class="dn-label">12h</span>
+      </div>
+      <div class="dn-marker dn-marker--sun" style="--pos:58%">
+        <span class="dn-icon">☀</span><span class="dn-label">18h</span>
+      </div>
+      <div class="dn-marker dn-marker--moon" style="--pos:83%">
+        <span class="dn-icon">☾</span><span class="dn-label">22h</span>
+      </div>
+      <div class="dn-marker dn-marker--moon" style="--pos:96%">
+        <span class="dn-icon">☾</span><span class="dn-label">4h</span>
+      </div>
+      <div class="dn-closed" style="--start:96%; --end:104%"></div>
+    </div>
+    <p class="access-caption">Portail sécurisé • Réception disponible de 6h à 4h</p>
+  </div>
+</section>
+
+<!-- =========================================================
+     SECTION CHAMBRES — CATALOGUE & TARIFS
+     ========================================================= -->
+<section class="rooms" id="chambres">
+  <div class="container">
+    <p class="eyebrow">Nos chambres</p>
+    <h2 class="section-title">Une formule pour chaque séjour</h2>
+    <p class="section-lead">
+      Trois catégories de chambres, toutes équipées d'eau chaude, d'une TV écran plat
+      et du Wi-Fi gratuit. Deux d'entre elles incluent déjà votre petit-déjeuner.
+    </p>
+
+    <div class="room-grid">
+
+      <!-- CHAMBRE STANDARD -->
+      <article class="room-card">
+        <div class="room-media">
+          <!-- METTRE L'IMAGE DE LA CHAMBRE STANDARD ICI -->
+          <img src="image-miawa/standar.jpeg" alt="Chambre Standard du Miawa Hôtel" class="room-img">
+        </div>
+        <div class="room-body">
+          <h3 class="room-name">Chambre Standard</h3>
+          <p class="room-price"><span class="price-amount">15 000</span> <span class="price-unit">FCFA / nuit</span></p>
+          <ul class="room-features">
+            <li>Eau chaude</li>
+            <li>TV écran plat (chaînes incluses)</li>
+            <li>Wi-Fi gratuit</li>
+          </ul>
+          <p class="room-breakfast room-breakfast--optional">
+            Petit-déjeuner non inclus —
+            <strong>Option Petit-Déjeuner complet : +2 000 FCFA</strong>
+          </p>
+          <a href="#reservation" class="btn btn--outline btn--full" data-open-booking data-room="standard">
+            Réserver cette chambre
+          </a>
+        </div>
+      </article>
+
+      <!-- CHAMBRE SUPÉRIEURE (mise en avant petit-déjeuner inclus) -->
+      <article class="room-card room-card--highlight">
+        <span class="room-badge">Petit-déjeuner inclus</span>
+        <div class="room-media">
+          <!-- METTRE L'IMAGE DE LA CHAMBRE SUPÉRIEURE ICI -->
+          <img src="image-miawa/superieur.jpeg" alt="Chambre Supérieure du Miawa Hôtel" class="room-img">
+        </div>
+        <div class="room-body">
+          <h3 class="room-name">Chambre Supérieure</h3>
+          <p class="room-price"><span class="price-amount">20 000</span> <span class="price-unit">FCFA / nuit</span></p>
+          <ul class="room-features">
+            <li>Confort supérieur</li>
+            <li>Eau chaude</li>
+            <li>TV écran plat</li>
+            <li>Wi-Fi gratuit</li>
+          </ul>
+          <p class="room-breakfast room-breakfast--included">
+            ★ Petit-déjeuner inclus
+          </p>
+          <a href="#reservation" class="btn btn--accent btn--full" data-open-booking data-room="superieure">
+            Réserver cette chambre
+          </a>
+        </div>
+      </article>
+
+      <!-- SUITE PREMIUM -->
+      <article class="room-card room-card--highlight">
+        <span class="room-badge">Petit-déjeuner inclus</span>
+        <div class="room-media">
+          <!-- METTRE L'IMAGE DE LA SUITE ICI -->
+          <img src="image-miawa/suits.jpeg" alt="Suite Premium du Miawa Hôtel" class="room-img">
+        </div>
+        <div class="room-body">
+          <h3 class="room-name">Suite Premium</h3>
+          <p class="room-price"><span class="price-amount">30 000</span> <span class="price-unit">FCFA / nuit</span></p>
+          <ul class="room-features">
+            <li>Espace VIP avec salon</li>
+            <li>Eau chaude</li>
+            <li>Grand écran plat</li>
+            <li>Wi-Fi haut débit</li>
+          </ul>
+          <p class="room-breakfast room-breakfast--included">
+            ★ Petit-déjeuner inclus
+          </p>
+          <a href="#reservation" class="btn btn--accent btn--full" data-open-booking data-room="suite">
+            Réserver cette chambre
+          </a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     SECTION ESPACES COMMUNS & ÉVÉNEMENTS
+     ========================================================= -->
+<section class="spaces" id="espaces">
+  <div class="container">
+    <p class="eyebrow">Espaces &amp; événements</p>
+    <h2 class="section-title">Bien plus qu'une chambre</h2>
+
+    <div class="spaces-grid">
+
+      <!-- SALLE DE SÉMINAIRE -->
+      <article class="space-card space-card--wide">
+        <div class="space-media">
+          <!-- METTRE L'IMAGE DE LA SALLE DE SÉMINAIRE ICI -->
+          <img src="image-miawa/s.jpeg" alt="Salle de séminaire équipée du Miawa Hôtel" class="space-img">
+        </div>
+        <div class="space-body">
+          <h3>Salle de Séminaire</h3>
+          <p>
+            Une salle moderne et équipée pour vos événements professionnels
+            et séminaires jusqu'à 50 personnes.
+          </p>
+          <a href="#reservation" class="btn btn--outline" data-open-booking data-room="seminaire">
+            Demander une disponibilité
+          </a>
+        </div>
+      </article>
+
+      <!-- ESPACE DÉTENTE & RESTAURANT -->
+      <article class="space-card space-card--wide">
+        <div class="space-media">
+          <!-- METTRE L'IMAGE DE L'ESPACE DÉTENTE / RESTAURANT ICI -->
+          <img src="image-miawa/espace.jpeg" alt="Espace détente et restaurant du Miawa Hôtel" class="space-img">
+        </div>
+        <div class="space-body">
+          <h3>Espace Détente &amp; Restaurant</h3>
+          <p>
+            Un cadre apaisant pour se restaurer et se détendre, entre deux
+            rendez-vous ou après une longue route.
+          </p>
+        </div>
+      </article>
+    </div>
+
+    <!-- SERVICES GRATUITS -->
+    <div class="free-services">
+      <div class="free-service">
+        <span class="free-icon" aria-hidden="true">🅿</span>
+        <span class="free-label">Parking sécurisé</span>
+      </div>
+      <div class="free-service">
+        <span class="free-icon" aria-hidden="true">📶</span>
+        <span class="free-label">Wi-Fi disponible partout</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     BANDEAU CTA FINAL
+     ========================================================= -->
+<section class="cta-band">
+  <div class="container cta-band-inner">
+    <h2>Prêt pour votre séjour à Yamoussoukro ?</h2>
+    <p>Remplissez le formulaire, le reste se passe sur WhatsApp — sans complication.</p>
+    <a href="#reservation" class="btn btn--accent btn--large" data-open-booking>
+      Réserver maintenant
+    </a>
+  </div>
+</section>
+
+<!-- =========================================================
+     BLOC / MODALE DE RÉSERVATION — TUNNEL WHATSAPP "ZÉRO COMPLICATION"
+     ========================================================= -->
+<div class="booking-panel" id="reservation" data-booking-panel aria-hidden="true">
+  <div class="booking-backdrop" data-close-booking></div>
+
+  <div class="booking-sheet" role="dialog" aria-modal="true" aria-labelledby="booking-title">
+    <button class="booking-close" data-close-booking aria-label="Fermer le formulaire de réservation">✕</button>
+
+    <p class="eyebrow">Réservation express</p>
+    <h2 id="booking-title">Finalisons votre réservation sur WhatsApp</h2>
+    <p class="booking-lead">Deux minutes suffisent. Vous recevrez une confirmation directement sur WhatsApp.</p>
+
+    <form class="booking-form" id="booking-form" novalidate>
+
+      <div class="form-field">
+        <label for="client-nom">Nom complet</label>
+        <input type="text" id="client-nom" name="nom" placeholder="Ex : Awa Koffi" required>
+      </div>
+
+      <div class="form-field">
+        <label for="client-tel">Numéro de téléphone</label>
+        <input type="tel" id="client-tel" name="telephone" placeholder="Ex : 07 00 00 00 00" required>
+      </div>
+
+      <div class="form-field">
+        <label for="client-formule">Choix de la formule</label>
+        <select id="client-formule" name="formule" required>
+          <option value="" disabled selected>Sélectionnez une formule</option>
+          <option value="Chambre Standard — 15 000 FCFA / nuit">Standard — 15 000 FCFA</option>
+          <option value="Chambre Standard + Option Petit-Déjeuner — 17 000 FCFA / nuit">Standard + Option Petit-Déjeuner — 17 000 FCFA</option>
+          <option value="Chambre Supérieure (Petit-déjeuner inclus) — 20 000 FCFA / nuit">Supérieure (Petit-déjeuner inclus) — 20 000 FCFA</option>
+          <option value="Suite Premium (Petit-déjeuner inclus) — 30 000 FCFA / nuit">Suite Premium (Petit-déjeuner inclus) — 30 000 FCFA</option>
+          <option value="Salle de Séminaire">Salle de Séminaire</option>
+        </select>
+      </div>
+
+      <div class="form-field-row">
+        <div class="form-field">
+          <label for="date-arrivee">Date d'arrivée</label>
+          <input type="date" id="date-arrivee" name="arrivee" required>
+        </div>
+        <div class="form-field">
+          <label for="date-depart">Date de départ</label>
+          <input type="date" id="date-depart" name="depart" required>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn--accent btn--full btn--large">
+        Envoyer sur WhatsApp
+      </button>
+
+      <p class="booking-note">
+        En validant, WhatsApp s'ouvre avec votre demande déjà rédigée — il ne vous reste
+        qu'à l'envoyer.
+      </p>
+    </form>
+  </div>
+</div>
+
+<!-- =========================================================
+     PIED DE PAGE
+     ========================================================= -->
+<footer class="site-footer" id="contact">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <svg class="logo-palm" width="26" height="26" aria-hidden="true"><use href="#icon-palm"></use></svg>
+        <span class="logo-words">
+          <span class="logo-word logo-word--miawa">Miawa</span>
+          <span class="logo-word logo-word--hotel">Hôtel</span>
+          <span class="logo-tag">Yamoussoukro</span>
+        </span>
+      </div>
+      <p>
+        Quartier Morofé, non loin de la Basilique Notre-Dame de la Paix,
+        sur la voie menant à Daloa — au bord de la grande voie, Yamoussoukro,
+        Côte d'Ivoire.
+      </p>
+      <a href="https://www.google.com/maps/search/?api=1&query=Miawa+H%C3%B4tel+Yamoussoukro+Morof%C3%A9"
+         target="_blank" rel="noopener noreferrer" class="footer-itinerary">
+        Voir l'itinéraire sur Google Maps →
+      </a>
+    </div>
+
+    <div class="footer-contact">
+      <h3>Contact rapide</h3>
+      <a href="https://wa.me/2250151030957" class="footer-whatsapp">0151030957 — WhatsApp</a>
+      <p>Réception ouverte de 6h à 2h du matin, 7j/7.</p>
+    </div>
+
+    <div class="footer-social">
+      <h3>Suivez-nous</h3>
+      <ul class="social-links social-links--footer" aria-label="Suivez Miawa Hôtel sur les réseaux sociaux">
+        <li>
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Miawa Hôtel sur Facebook" class="social-link social-link--facebook">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.6h2.55l.38-2.96h-2.93V8.55c0-.86.24-1.44 1.47-1.44h1.57V4.46c-.27-.04-1.2-.12-2.28-.12-2.26 0-3.8 1.38-3.8 3.9v2.18H8v2.96h2.46V21h3.04Z"/></svg>
+            <span>Facebook</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Miawa Hôtel sur Instagram" class="social-link social-link--instagram">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 8.4a3.6 3.6 0 1 0 0 7.2 3.6 3.6 0 0 0 0-7.2Zm0 5.94A2.34 2.34 0 1 1 12 9.66a2.34 2.34 0 0 1 0 4.68ZM17.6 3H6.4A3.4 3.4 0 0 0 3 6.4v11.2A3.4 3.4 0 0 0 6.4 21h11.2a3.4 3.4 0 0 0 3.4-3.4V6.4A3.4 3.4 0 0 0 17.6 3Zm2.14 14.6a2.14 2.14 0 0 1-2.14 2.14H6.4a2.14 2.14 0 0 1-2.14-2.14V6.4A2.14 2.14 0 0 1 6.4 4.26h11.2A2.14 2.14 0 0 1 19.74 6.4v11.2ZM17.9 6.9a.86.86 0 1 1-1.72 0 .86.86 0 0 1 1.72 0Z"/></svg>
+            <span>Instagram</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer" aria-label="Miawa Hôtel sur TikTok" class="social-link social-link--tiktok">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M16.6 3h-2.9v12.2a2.6 2.6 0 1 1-1.85-2.49v-2.98a5.58 5.58 0 1 0 4.75 5.53c0-.1 0-.19-.01-.29V9.35a7.9 7.9 0 0 0 4.4 1.33V7.78a4.98 4.98 0 0 1-4.4-4.62V3Z"/></svg>
+            <span>TikTok</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <h3>Explorer</h3>
+      <ul>
+        <li><a href="#chambres">Chambres</a></li>
+        <li><a href="#espaces">Salle de séminaire</a></li>
+        <li><a href="#acces">Accès &amp; localisation</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>&copy; <span id="year"></span> Miawa Hôtel Yamoussoukro. Tous droits réservés.</p>
+  </div>
+</footer>
+
+<!-- Script (étape suivante) -->
+<script src="miawa.js"></script>
+</body>
+</html>
